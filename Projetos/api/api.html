@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href=''>
+   
+</head>
+<body>
+    <div>
+        <button onclick="teste()" class="botao"> Clique aqui</button>
+        <p id="retorno"></p>
+    </div>
+<script>
+    function teste() {
+    var cep = prompt("Insira um cep.");
+    var url = "https://viacep.com.br/ws/"+cep+"/json/";
+    var xhttp = new XMLHttpRequest();
+    xhttp.open("GET", url,false);
+    xhttp.send();
+
+    console.log(xhttp.responseText);
+    respostaJSON = JSON.parse(xhttp.responseText);
+    console.log(respostaJSON)
+    document.getElementById("retorno").innerHTML = xhttp.responseText;
+    }
+</script>
+</body>
+</html>

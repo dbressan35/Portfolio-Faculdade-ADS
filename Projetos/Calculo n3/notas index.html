@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Media</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script src='main.js'>  </script>
+</head>
+<body>
+     <h1>Média do aluno v1.0</h1>
+     <button onclick="media()">Click aqui para calcular sua média</button>
+     <selection id="situacao">
+        <p>O resultado vai aparecer aqui...</p>
+     </selection>
+<script>
+function media() {
+    let nom = window.prompt('Qual é o nome do aluno?')
+    let n1 = Number(window.prompt(`Qual foi a sua primeira nota ${nom}?`))
+    let n2 = Number(window.prompt(`Além de ${n1}, qual foi a outra nota ${nom}?`))
+    let n3 = Number(window.prompt(`Além de ${n2}, qual foi a outra nota ${nom}?`))
+    med = (n1+n2+n3)/3
+    if(med > 6.9) {
+msg = " O Aluno está APROVADO, parabéns"
+    }
+        
+    if(med < 6.9) {
+        msg = " O Aluno está DE EXAME"
+    }
+
+
+    let res = document.getElementById('situacao')
+    res.innerHTML = `<p>Calculando a média final de <mark>${nom}</mark.</p>`
+    res.innerHTML += `<p>As notas obtidas foram <mark>${n1}, ${n2} e ${n3}</mark>.</p>`
+    res.innerHTML += `<p>A média final será <mark>${med}</mark>${msg}.</p>`
+
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Votação 2026</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <link rel="shortcut icon" href="voto.png" type="image/x-icon">
+</head>
+<body>
+     <div class="geral">
+         <h1 >&#128214 VOTAÇÃO 2026 &#128214</h1>
+         <button onclick="voto()" class="botao">Click aqui para saber se você ja<p> pode votar ou não.</p>
+            <img src="receitafederal.png" width="120px"></button>
+         <selection id="voto">
+            <p>As informações irão aparecer aqui &#128203:</p>
+         </selection>
+     </div>
+<script>
+function voto() {
+    let nom = window.prompt('Qual é o nome do candidato?')
+    let idade = Number(window.prompt(`Qual é a usa idade ${nom}?`))
+    if(idade < 16) {
+msg = " você ainda <mark>NÃO PODE VOTAR</mark>, aguarde mais alguns anos &#128515"
+    }
+     else if(idade >= 16 && idade <= 17 ) {
+msg = " você <mark> NÃO É OBRIGADO A VOTAR </mark>, mas se quiser voçê tem este direito &#128578"
+    }
+    
+    else if(idade >= 70 ) {
+msg = " você <mark> NÃO É OBRIGADO A VOTAR </mark>, mas se quiser voçê tem este direito &#128578"
+    }
+
+    else
+{
+msg = " você é <mark>OBRIGADO A VOTAR</mark>, caso contrario terá multa &#128521"
+    }
+
+    let res = document.getElementById('voto')
+    res.innerHTML = `<p>Recebendo a idade do candidato <mark>${nom}</mark.</p> :`
+    res.innerHTML += `<p>A sua idade é <mark>${idade}</mark> anos e ${msg}.</p>`
+
+}
+</script>
+</body>
+</html>
